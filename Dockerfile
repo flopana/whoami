@@ -1,5 +1,7 @@
 FROM golang:1.21
 
+COPY ./ ./
+
 RUN go version
 RUN go get
 RUN go build -o /bin/whoami main.go
