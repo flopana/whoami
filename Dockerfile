@@ -2,6 +2,9 @@ FROM golang:1.21
 
 COPY ./ ./
 
+RUN pwd
+RUN whoami
+
 RUN go version
 RUN go get
 RUN go build -o /bin/whoami main.go
