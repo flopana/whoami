@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ .Server.Uuid }} </title>
+    <style>
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url(Ubuntu-Medium.ttf) format('ttf');
+        }
+
+        *, html, body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #identityColor {
+            background-color: ;
+            width: 100%;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="identityColor"></div>
+
+<h1>Erbs WhoAmI</h1>
+<p>WhoAmI is a simple web application that show simple information about the Server it is running on</p>
+<ul>
+    <li>UUID: {{ .Server.Uuid }}</li>
+    <li>Hostname: {{ .Hostname }}</li>
+</ul>
+</body>
+</html>
