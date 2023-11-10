@@ -3,12 +3,10 @@ WORKDIR /whoami
 
 COPY ./ ./
 
-RUN pwd
-RUN whoami
-
 RUN go version
 RUN go get
-RUN go build -o /bin/whoami main.go
+# add flags -w -s for
+RUN go build -ldflags="-w -s" -o /bin/whoami main.go
 
 FROM gcr.io/distroless/static-debian12
 
