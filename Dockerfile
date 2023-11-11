@@ -10,6 +10,7 @@ RUN go get
 # https://golang.org/cmd/link/
 # https://github.com/xaionaro/documentation/blob/master/golang/reduce-binary-size.md#1-strip
 RUN go build -ldflags="-w -s" -o /go/bin/whoami
+RUN ls -alh /go/bin/whoami
 
 FROM gcr.io/distroless/static-debian12
 
