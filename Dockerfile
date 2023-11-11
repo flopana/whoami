@@ -4,6 +4,7 @@ WORKDIR /whoami
 COPY ./ ./
 
 RUN go version
+RUN go get
 
 # Strip debug information and compile only the binary
 # https://golang.org/cmd/link/
