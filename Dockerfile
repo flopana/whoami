@@ -1,4 +1,4 @@
-FROM golang:1.21
+FROM golang:1.21 as build
 WORKDIR /whoami
 
 COPY ./ ./
@@ -13,5 +13,5 @@ RUN go build -ldflags="-w -s" -o /go/bin/whoami main.go
 
 FROM gcr.io/distroless/static-debian12
 
-COPY --from=0 /go/bin/whoami /
+COPY --from=build /go/bin/whoami /
 CMD ["/whoami"]
