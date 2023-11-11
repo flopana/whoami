@@ -10,7 +10,7 @@ import (
 
 func main() {
 	var server = http.Server{
-		Address: "localhost",
+		Address: "0.0.0.0",
 		Port:    8080,
 		Uuid:    uuid.GenUUID(),
 		Color:   getColor(),
