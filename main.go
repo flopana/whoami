@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image/color"
 	"math/rand"
+	"time"
 	"whoami/http"
 	"whoami/uuid"
 )
@@ -25,10 +26,12 @@ func main() {
 }
 
 func getColor() color.RGBA {
+	var r = rand.New(rand.NewSource(time.Now().UnixNano()))
+
 	return color.RGBA{
-		R: uint8(rand.Intn(256)),
-		G: uint8(rand.Intn(256)),
-		B: uint8(rand.Intn(256)),
+		R: uint8(r.Intn(256)),
+		G: uint8(r.Intn(256)),
+		B: uint8(r.Intn(256)),
 		A: 255,
 	}
 }
