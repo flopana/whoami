@@ -13,5 +13,5 @@ RUN go build -ldflags="-w -s" -o /bin/whoami main.go
 
 FROM gcr.io/distroless/static-debian12
 
-COPY --from=0 /bin/whoami /bin/whoami
-CMD ["/bin/whoami"]
+COPY --from=0 /bin/whoami whoami
+CMD ["whoami"]
