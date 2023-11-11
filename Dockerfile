@@ -4,11 +4,13 @@ WORKDIR /whoami
 COPY ./ ./
 
 RUN go version
-RUN go get
-# add flags -w -s for
+
+# Strip debug information and compile only the binary
+# https://golang.org/cmd/link/
+# https://github.com/xaionaro/documentation/blob/master/golang/reduce-binary-size.md#1-strip
 RUN go build -ldflags="-w -s" -o /bin/whoami main.go
 
 FROM gcr.io/distroless/static-debian12
 
 COPY --from=0 /bin/whoami /bin/whoami
-CMD ["/bin/hello"]
+CMD ["/bin/whoami"]
